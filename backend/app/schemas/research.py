@@ -7,9 +7,15 @@ class ResearchQuestion(BaseModel):
         max_length=2000,
         description="The research question to answer.",
     )
+
     document_id: str | None = Field(
         default=None,
         description="Optional ID of the document to search.",
+    )
+
+    conversation_id: str | None = Field(
+        default=None,
+        description="ID used to continue an existing conversation.",
     )
 
 
