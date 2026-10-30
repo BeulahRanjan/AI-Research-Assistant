@@ -56,13 +56,19 @@ async def upload_document(file: UploadFile = File(...)):
             filename=file.filename,
             chunks=chunks,
         )
+    # except Exception as exc:
+    #     raise HTTPException(
+    #         status_code=502,
+    #         detail=(
+    #             "Could not create embeddings or save the document. "
+    #             "Check your API key, API usage, and server logs."
+    #         ),
+    #     ) from exc
     except Exception as exc:
+        print(f"DOCUMENT INDEXING ERROR: {type(exc).__name__}: {exc}")
         raise HTTPException(
             status_code=502,
-            detail=(
-                "Could not create embeddings or save the document. "
-                "Check your API key, API usage, and server logs."
-            ),
+            detail=f"Document indexing failed: {type(exc).__name__}: {exc}",
         ) from exc
 
     return {

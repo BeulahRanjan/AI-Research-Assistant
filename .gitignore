@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.venv/
+backend/__pycache__/
+*.py[cod]
+backend/research_assistant.db
+frontend/node_modules/
+frontend/dist/
