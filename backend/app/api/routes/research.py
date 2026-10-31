@@ -7,7 +7,6 @@ router = APIRouter(prefix="/api/research", tags=["Research"])
 
 
 @router.post("/ask")
-
 def ask_question(request: ResearchQuestion):
     try:
         result = answer_research_question(
