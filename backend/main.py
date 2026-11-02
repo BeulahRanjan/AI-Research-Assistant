@@ -21,7 +21,7 @@ app.add_middleware(
 
 # app.include_router(health.router)
 # app.include_router(documents.router)
-# app.include_router(research.router)
+app.include_router(research.router)
 
 
 @app.get("/")
